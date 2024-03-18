@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="textboxstyle.css">
+	<title>Text Box</title>
+</head>
+<body>
+	<h1 align="center" class="heading"> TEXT BOX</h1>
+	<div class="container" align="center">
+	<form class="textboxform">
+		<label>Enter your text below</label>
+		<br><br>
+		<textarea id="text" rows="8" cols="60" onkeyup="updateInfo()" autofocus></textarea>
+		<button type="button" onclick="transformUpperCase()">UPPERCASE</button>
+		<button type="button" onclick="transformLowerCase()">LOWERCASE</button>
+		<button type="button" onclick="findText()">FIND</button>
+		<button type="button" onclick="changeColor()">CHANGE COLOR</button>
+		<button type="button" onclick="textUnderline()">UNDERLINE</button>
+		<button type="button" onclick="copytext()">COPY</button>
+		<br>
+		<h2 id="textinfo">This text contains 0 words and 0 letters.</h2>
+	</form>
+	</div>
+	<script type="text/javascript">
+	let text=document.getElementById('text');
+	let textInfo=document.getElementById('textinfo');
+	let clr;
+
+	function transformUpperCase()
+	{
+		text.value=text.value.transformUpperCase();
+	}
+	function transformLowerCase()
+	{
+		text.value=text.value.transformLowerCase();
+	}
+	function findText()
+	{
+		let searchText=promt("enter the text:");
+		if(text.value.includes(searchText))
+		{
+			alert(`search text "${searchText}" is present`);
+		}
+		else
+		{
+			alert(`serach text "${searchText}" is not present`);
+		}
+
+	}
+
+	function changeColor() {
+		clr = prompt(("Enter your fav color:").tolowerCase())
+		text.style.color=clr;
+	}
+
+	function textUnderline() {
+		text.style.textDecoration=`underline 2px solid ${clr}` 
+	}
+
+    function updateInfo() {
+
+    let numberOfWords=text.value.trim().split(" ").length
+
+    textInfo.innerHTML = `This text contains ${}`
+    }
+
+		
+	</script>
+	
+
+</body>
+</html>
